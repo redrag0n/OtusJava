@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+}
+
+apply plugin: "java"
+apply plugin: "com.github.johnrengelman.shadow"
+
+
+group 'hw01.gradle'
+version '0.0.1'
+
+repositories {
+    mavenCentral()
+}
+
+shadowJar {
+    archiveBaseName.set('fat-jar-file')
+    archiveVersion.set('0.0.2')
+    archiveClassifier.set('')
+    manifest {
+        attributes 'Main-Class': 'hw01.gradle.HelloOtus'
+    }
+}
+
+tasks.build.dependsOn tasks.shadowJar
+
+dependencies {
+    implementation 'com.google.guava:guava:31.1-jre'
+}
