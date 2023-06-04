@@ -1,0 +1,14 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+
+mainClassName = 'hw03.generics.GenericsMain'
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    archiveBaseName = 'otus-java'
+    archiveVersion =  '0.1.0'
+}
